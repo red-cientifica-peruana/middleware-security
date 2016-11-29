@@ -1,1 +1,1 @@
-from .middleware import Security
+from .middleware import AuthVerify

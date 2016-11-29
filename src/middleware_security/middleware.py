@@ -3,7 +3,7 @@ import requests
 from falcon_exceptions import HTTPException
 from requests.exceptions import HTTPError
 
-class Security(object):
+class AuthVerify(object):
 
     def __init__(self, config):
         self.config = config

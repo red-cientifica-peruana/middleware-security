@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import requests
-from .api.exception import HTTPException
+from falcon_exceptions import HTTPException
 from requests.exceptions import HTTPError
 
 class Security(object):

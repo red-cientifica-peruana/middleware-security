@@ -12,9 +12,14 @@ setup(
     description = "Falcon Security middlware",
     package_dir = {"":"src"},
     packages = find_packages("src"),
-    install_requires=["falcon"],
+    install_requires=[
+        "requests"
+    ],
+    dependency_links=[
+        "git+ssh://git@git.rcp.pe:4488/devteam/falcon-exceptions.git#egg=falcon_exceptions"
+    ],
     author = 'DevTeam RCP',
     author_email = 'devteam@rcp.pe',
     url = 'https://git.rcp.pe/devteam/middleware-security',
-    keywords = ['falcon', 'rest', 'http']
+    keywords = ['falcon', 'security']
 )

@@ -13,10 +13,11 @@ setup(
     package_dir = {"":"src"},
     packages = find_packages("src"),
     install_requires=[
-        "requests"
+        "requests",
+        "PyJWT==1.5.0"
     ],
     dependency_links=[
-        "git+ssh://git@git.rcp.pe:4488/devteam/falcon-exceptions.git#egg=falcon_exceptions"
+        "git+https://github.com/red-cientifica-peruana/falcon-exceptions.git#egg=falcon_exceptions"
     ],
     author = 'DevTeam RCP',
     author_email = 'devteam@rcp.pe',

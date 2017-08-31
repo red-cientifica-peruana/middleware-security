@@ -11,11 +11,12 @@ class AuthVerify(object):
         if req.method == 'OPTIONS':
             return
 
-        secure_paths = self.config['security']['secure_paths']
-        current_path = req.path
+        if 'secure_paths' in self.config['security']:
+            secure_paths = self.config['security']['secure_paths']
+            current_path = req.path
 
-        if current_path in secure_paths:
-            return
+            if current_path in secure_paths:
+                return
 
         if not req.auth:
             raise HTTPException(401, "Authorization token not send")

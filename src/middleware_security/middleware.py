@@ -11,7 +11,7 @@ class AuthVerify(object):
         if req.method == 'OPTIONS':
             return
 
-        if 'secure_paths' in self.config['security']:
+        if 'security' in self.config:
             secure_paths = self.config['security']['secure_paths']
             current_path = req.path
 

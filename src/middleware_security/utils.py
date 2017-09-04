@@ -11,6 +11,9 @@ def scope_verify(scope):
             if not 'token_scopes' in context:
                 func(*args, **kwargs)
             else:
+                if scope is None:
+                    raise HTTPException(500, "The scope was not set correctly")
+
                 token_scopes = context['token_scopes']
                 parts_scope = scope.split(':')
 

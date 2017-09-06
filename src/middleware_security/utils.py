@@ -10,7 +10,8 @@ def scope_verify(scope=None):
             context = args[1].context
             
             if isinstance(scope_obj, dict):
-                scope_obj = scope_obj.get(func.__name__, None)
+                func_name = func.__name__.split('_')
+                scope_obj = scope_obj.get(func_name[1], None)
             
             if not 'token_scopes' in context:
                 func(*args, **kwargs)

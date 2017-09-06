@@ -6,20 +6,20 @@ def scope_verify(scope=None):
 
     def method_decorator(func):
         def method_wrapper(*args, **kwargs):
-            scope = args[0].scope if not scope else scope
+            scope_obj = args[0].scope if not scope else scope
             context = args[1].context
             
             if isinstace(scope, dict):
-                scope = scope.get(func.__name__, None)
+                scope_obj = scope_obj.get(func.__name__, None)
             
             if not 'token_scopes' in context:
                 func(*args, **kwargs)
             else:
-                if scope is None:
+                if scope_obj is None:
                     raise HTTPException(500, "The scope was not set correctly")
 
                 token_scopes = context['token_scopes']
-                parts_scope = scope.split(':')
+                parts_scope = scope_obj.split(':')
 
                 if len(parts_scope) < 3 or len(parts_scope) > 3:
                     raise HTTPException(500, "The scope was not set correctly")

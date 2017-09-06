@@ -9,7 +9,7 @@ def scope_verify(scope=None):
             scope_obj = args[0].scope if not scope else scope
             context = args[1].context
             
-            if isinstace(scope, dict):
+            if isinstance(scope, dict):
                 scope_obj = scope_obj.get(func.__name__, None)
             
             if not 'token_scopes' in context:

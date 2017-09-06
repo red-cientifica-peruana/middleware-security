@@ -1,12 +1,16 @@
 from falcon_exceptions import HTTPException
 
 
-def scope_verify(scope):
+def scope_verify(scope=None):
     """ Decorator for scope verify """
 
     def method_decorator(func):
         def method_wrapper(*args, **kwargs):
+            scope = args[0].scope if not scope else scope
             context = args[1].context
+            
+            if isinstace(scope, dict):
+                scope = scope.get(func.__name__, None)
             
             if not 'token_scopes' in context:
                 func(*args, **kwargs)

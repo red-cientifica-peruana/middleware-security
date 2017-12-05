@@ -7,7 +7,7 @@ class AuthVerify(object):
     def __init__(self, config):
         self.config = config
 
-    def process_request(self, req, resp):
+    def process_resource(self, req, resp, resource, params):
         if req.method == 'OPTIONS':
             return
 

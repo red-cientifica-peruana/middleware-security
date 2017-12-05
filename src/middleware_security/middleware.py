@@ -13,7 +13,7 @@ class AuthVerify(object):
 
         if 'security' in self.config:
             secure_paths = self.config['security']['secure_paths']
-            current_path = req.path
+            current_path = req.uri_template
 
             if current_path in secure_paths:
                 return

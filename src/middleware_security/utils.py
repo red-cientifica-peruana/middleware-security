@@ -1,3 +1,4 @@
+from functools import wraps
 from falcon_exceptions import HTTPException
 
 
@@ -5,6 +6,7 @@ def scope_verify(scope=None):
     """ Decorator for scope verify """
 
     def method_decorator(func):
+        @wraps(func)
         def method_wrapper(*args, **kwargs):
             scope_obj = args[0].scope if not scope else scope
             context = args[1].context

@@ -30,7 +30,10 @@ def scope_verify(scope=None):
                 if (parts_scope[0] not in token_scopes or
                     parts_scope[1] not in token_scopes[parts_scope[0]] or
                     parts_scope[2] not in token_scopes[parts_scope[0]][parts_scope[1]]):
-                    raise HTTPException(403, "You are not authorized to perform this action")
+                    raise HTTPException(
+                        403,
+                        dev_msg="You are not authorized to perform this action",
+                        user_msg="No se encuentra autorizado para realizar esta acción")
 
                 func(*args, **kwargs)
         return method_wrapper
